@@ -22,5 +22,7 @@ from ModelApplication import views
 
 
 urlpatterns = [
+    url(r'^', include('ModelApplication.urls')),
+    url(r'^', include('homepage.urls')),
     url(r'^admin/', admin.site.urls),
 ]

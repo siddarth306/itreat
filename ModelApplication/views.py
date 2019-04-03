@@ -11,16 +11,16 @@ def createJob(request):
     if request.method == "POST":
         return render(request,"JobSchd/jobfinal_form.html",{})
 
-    command = "Rscript " + BASE_DIR + "/../Model_Application/0_Main.r " 
+    command = "Rscript " + BASE_DIR + "/../Model_Application/0_Main.r "
     args = []
     args.append("Project Folder")
-    args.append("/home/sumit/Downloads/Model_Application/")
+    args.append("/home/siddharth/MARG/Model_Application/")
     args.append("Halton File")
-    args.append("/home/sumit/Downloads/Halton_R/haltbrat_vfc101.csv")
+    args.append("/home/siddharth/MARG/Halton_R/haltbrat_vfc101.csv")
     args.append("Input Data")
-    args.append("/home/sumit/Downloads/Model_Application/az_hhld_vfc_cleaned_final.csv")
+    args.append("/home/siddharth/MARG/Model_Application/az_hhld_vfc_cleaned_final.csv")
     args.append("Output Data")
-    args.append("/home/sumit/Downloads/Model_Application/VFC_output.csv")
+    args.append("/home/siddharth/MARG/Model_Application/VFC_output.csv")
     args.append("Seed")
     args.append("1")
     args.append("const|DRVRCNT|NUMADLT|RUR|INCOME1|INCOME5|NUMCHILD|WORK0|WORK2|HSIZE4|SF_Own|Retired|Prop_HH_INC5|Prop_SFHH|AUTO10_Q1")
@@ -65,7 +65,7 @@ def createJob(request):
     args.append("-7.177|1.283|0.345|-0.25|-0.335")
     args.append("uno|RUR|SF_Own|HSIZE1")
     args.append("-8.190|0.705|0.752|-0.567")
-    args.append("uno| INCOME1|INCOME2|INCOME3")
+    args.append("uno|INCOME1|INCOME2|INCOME3")
     args.append("8.072|0.3|-0.35|-0.15")
     args.append("uno|INCOME1")
     args.append("7.732|0.35")
@@ -93,10 +93,6 @@ def createJob(request):
     args.append("7.507|1.0|-1.0|0.5")
     args.append("Tolerance")
     args.append("0.035")
-    args.append("Tolerance")
-    args.append("0.035")
-    args.append("Maximum Iteration")
-    args.append("5")
     args.append("Maximum Iteration")
     args.append("5")
     args.append("const|INCOME1|INCOME2|OWN|HSIZE1|WORK0|POPDEN")

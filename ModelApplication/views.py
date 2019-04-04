@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 
 from django.shortcuts import render
+from django.http import JsonResponse, HttpResponse
 import subprocess
 from itreat.settings import BASE_DIR
 
@@ -20,7 +21,7 @@ def createJob(request):
     args.append("Input Data")
     args.append("/home/siddharth/MARG/Model_Application/az_hhld_vfc_cleaned_final.csv")
     args.append("Output Data")
-    args.append("/home/siddharth/MARG/Model_Application/VFC_output.csv")
+    args.append("/home/siddharth/MARG/itreat/static/result/VFC_output.csv")
     args.append("Seed")
     args.append("1")
     args.append("const|DRVRCNT|NUMADLT|RUR|INCOME1|INCOME5|NUMCHILD|WORK0|WORK2|HSIZE4|SF_Own|Retired|Prop_HH_INC5|Prop_SFHH|AUTO10_Q1")
@@ -120,13 +121,16 @@ def createJob(request):
     final_args = " ".join(args)
     command += " " + final_args + " " 
 
-    print command
+    # print command
     process = subprocess.Popen(command,shell=True,stdout=subprocess.PIPE)
     process.wait()
     for line in process.stdout:
             print line
     print process.returncode
-    return render(request,"ModelApplication/base.html",{})
+    data = {
+        'is_success': True
+    }
+    return JsonResponse(data)
 
 
 

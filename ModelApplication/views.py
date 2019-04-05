@@ -5,7 +5,7 @@ from django.shortcuts import render
 from django.http import JsonResponse, HttpResponse
 import subprocess
 from itreat.settings import BASE_DIR
-
+import os
 def createJob(request):
 
 
@@ -15,13 +15,14 @@ def createJob(request):
     command = "Rscript " + BASE_DIR + "/../Model_Application/0_Main.r "
     args = []
     args.append("Project Folder")
-    args.append("/home/siddharth/MARG/Model_Application/")
+    args.append("/home/sumit/MARG/Model_Application/")
     args.append("Halton File")
-    args.append("/home/siddharth/MARG/Halton_R/haltbrat_vfc101.csv")
+    args.append("/home/sumit/MARG/Halton_R/haltbrat_vfc101.csv")
     args.append("Input Data")
-    args.append("/home/siddharth/MARG/Model_Application/az_hhld_vfc_cleaned_final.csv")
+    args.append("/home/sumit/MARG/Model_Application/az_hhld_vfc_cleaned_final.csv")
     args.append("Output Data")
-    args.append("/home/siddharth/MARG/itreat/static/result/VFC_output.csv")
+    #os.remove("/home/sumit/MARG/itreat/static/result/VFC_output.csv")
+    args.append("/home/sumit/MARG/itreat/static/result/VFC_output.csv")
     args.append("Seed")
     args.append("1")
     args.append("const|DRVRCNT|NUMADLT|RUR|INCOME1|INCOME5|NUMCHILD|WORK0|WORK2|HSIZE4|SF_Own|Retired|Prop_HH_INC5|Prop_SFHH|AUTO10_Q1")

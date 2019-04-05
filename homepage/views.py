@@ -6,4 +6,7 @@ from django.shortcuts import render
 
 def homepage(request):
     return render(request, 'homepage/home.html', {})
+
+def graphs(request):
+    return render(request, 'homepage/graphs.html', {})
 # Create your views here.
